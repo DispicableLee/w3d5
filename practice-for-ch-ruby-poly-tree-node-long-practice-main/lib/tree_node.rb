@@ -8,23 +8,17 @@ class PolyTreeNode
     end
 
     def parent=(parent_node)
-        self.parent = parent_node
-        
-        # if parent_node.nil?
-        #     self.parent = nil
-        # end
-        # if self.parent.nil?
-        #     @parent = parent_node
-        #     parent_node.children << self
-        # else
-        #     self.parent = parent_node
-        # end
-        # else
-        #     self_parent = self.parent
-        #     self_parent.children.each_with_index do |node, i|
-        #         self.parent = nil if self == node
-                
-        #     end
+        if @parent !=nil
+            @parent.children.delete(self)
+        end
+        if parent_node.nil?
+            @parent = parent_node
+        else
+            @parent = parent_node
+            unless parent_node.children.include?(self)
+                parent_node.children << self
+            end
+        end
     end
 
 
