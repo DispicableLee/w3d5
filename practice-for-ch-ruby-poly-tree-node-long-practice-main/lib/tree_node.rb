@@ -29,4 +29,22 @@ class PolyTreeNode
         raise 'Not child buddy' if !@children.include?(child_node)
         child_node.parent = nil
     end
+
+    def dfs(target)
+        return self if self.value == target
+        # return nil if self.children.empty?
+
+        (0..self.children.length-1).each do |i|
+            # if self.children[i].dfs(target).nil?
+            #     i = i+1
+            # end
+            self.children[i].dfs(target)
+        end
+        
+        nil
+    end
+
+
+
+
 end
