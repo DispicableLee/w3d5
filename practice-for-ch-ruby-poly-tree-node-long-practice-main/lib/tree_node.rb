@@ -8,6 +8,8 @@ class PolyTreeNode
     end
 
     def parent=(parent_node)
+        self.parent = parent_node
+        
         # if parent_node.nil?
         #     self.parent = nil
         # end
