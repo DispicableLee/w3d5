@@ -42,15 +42,17 @@ class PolyTreeNode
         nil
     end
 
-        # return nil if self.children.empty?
+    def bfs(target)
+        queue = [self]
+        until queue.empty?
+            if queue.first.value == target
+                return queue.shift
+            else
+                queue.concat(queue.shift.children)
+            end
+        end
+        nil
+    end
 
-        # (0..self.children.length-1).each do |i|
-        #     # if self.children[i].dfs(target).nil?
-        #     #     i = i+1
-        #     # end
-        #     self.children[i].dfs(target)
-        # end
-        
-        # nil
-    # end
+
 end
